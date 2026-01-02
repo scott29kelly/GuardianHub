@@ -1,0 +1,234 @@
+{
+  "title": "Guardian Roofing & Siding – Top 10 Pain Points to Solve in 2026",
+  "principles": [
+    "Delegatable (clear ownership can be assigned)",
+    "Solvable (process, tech, or people solutions)",
+    "High ROI (reduce drag, increase speed, or protect revenue)"
+  ],
+  "painPoints": [
+    {
+      "id": 1,
+      "title": "Lead Intake → Inspection → Sale Has Too Many Handoffs",
+      "category": "sales",
+      "pain": [
+        "Leads come from multiple sources (canvassing, referrals, storms, online)",
+        "Inconsistent qualification and follow-up",
+        "Sales reps spend time chasing instead of selling"
+      ],
+      "cost": [
+        "Lost or delayed opportunities",
+        "Uneven close rates",
+        "Poor customer experience early on"
+      ],
+      "solutions": [
+        "Centralized lead intake + qualification workflow",
+        "Clear ownership rules + automation triggers",
+        "AI-assisted lead scoring and routing"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Sales Rep Performance Is Not Predictable or Scalable",
+      "category": "sales",
+      "pain": [
+        "Top reps outperform dramatically",
+        "New or average reps struggle to ramp",
+        "Knowledge lives in people, not systems"
+      ],
+      "cost": [
+        "Revenue volatility",
+        "High training and churn costs",
+        "You can't confidently scale"
+      ],
+      "solutions": [
+        "Standardized sales playbooks (AI-searchable)",
+        "Real-time coaching prompts and scripts",
+        "KPI-driven accountability dashboards"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Insurance Claim Process Is Slow, Fragmented, and Emotion-Driven",
+      "category": "insurance",
+      "pain": [
+        "Adjuster variability",
+        "Documentation inconsistencies",
+        "Homeowner confusion and anxiety"
+      ],
+      "cost": [
+        "Extended cycle times",
+        "Underpaid claims",
+        "Sales and production friction"
+      ],
+      "solutions": [
+        "Claim documentation SOPs + templates",
+        "Pre-adjuster prep workflows",
+        "Homeowner education automation (texts/videos)"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Production Handoffs from Sales Are Incomplete or Inaccurate",
+      "category": "production",
+      "pain": [
+        "Missing measurements, scopes, or expectations",
+        "Production teams inherit problems they didn't create"
+      ],
+      "cost": [
+        "Rework and delays",
+        "Internal conflict",
+        "Customer dissatisfaction"
+      ],
+      "solutions": [
+        "Sales-to-Production Readiness Checklist",
+        "Digital handoff requirements (no exceptions)",
+        "Automated rejection/feedback loop"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Scheduling & Capacity Planning Is Reactive",
+      "category": "production",
+      "pain": [
+        "Crews scheduled last-minute",
+        "Weather + material delays compound chaos",
+        "No clear view of future workload"
+      ],
+      "cost": [
+        "Idle crews or burnout",
+        "Missed deadlines",
+        "Margin erosion"
+      ],
+      "solutions": [
+        "Forecast-based scheduling",
+        "Capacity planning dashboards",
+        "Automated rescheduling logic tied to weather/materials"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Vendor & Crew Quality Is Inconsistent",
+      "category": "production",
+      "pain": [
+        "Quality varies by crew",
+        "Accountability is informal",
+        "Great crews aren't differentiated from average ones"
+      ],
+      "cost": [
+        "Callbacks and warranty issues",
+        "Brand risk",
+        "Lost repeat/referral business"
+      ],
+      "solutions": [
+        "Crew scorecards (quality, speed, callbacks)",
+        "Preferred-vendor tiers",
+        "Performance-based assignment"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Communication With Homeowners Is Too Manual",
+      "category": "customer",
+      "pain": [
+        "Repetitive status update calls/texts",
+        "Customers feel 'left in the dark'",
+        "Staff spend time answering the same questions"
+      ],
+      "cost": [
+        "Higher inbound volume",
+        "Lower satisfaction",
+        "Stress on team"
+      ],
+      "solutions": [
+        "Automated status updates by project phase",
+        "Customer portal or SMS timeline",
+        "FAQ + expectation-setting automation"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Data Lives in Too Many Places (No Single Source of Truth)",
+      "category": "operations",
+      "pain": [
+        "CRM, spreadsheets, texts, emails, photos",
+        "Conflicting information",
+        "Reporting is slow or unreliable"
+      ],
+      "cost": [
+        "Poor decisions",
+        "Time wasted reconciling data",
+        "Limited AI leverage"
+      ],
+      "solutions": [
+        "Unified data architecture",
+        "Role-based dashboards",
+        "AI-readable operational data layer"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Leadership Is Stuck in the Business, Not on the Business",
+      "category": "leadership",
+      "pain": [
+        "You and key leaders solve daily fires",
+        "Strategic projects stall",
+        "Delegation is unclear or incomplete"
+      ],
+      "cost": [
+        "Bottlenecked growth",
+        "Burnout",
+        "Missed opportunities"
+      ],
+      "solutions": [
+        "Clear ownership by function",
+        "Decision frameworks (who decides what)",
+        "AI copilots for leaders and managers"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Training, SOPs, and Tribal Knowledge Are Not Centralized",
+      "category": "operations",
+      "pain": [
+        "Ask Bob culture",
+        "Inconsistent execution",
+        "Hard to onboard quickly"
+      ],
+      "cost": [
+        "Slower ramp-up",
+        "Quality drift",
+        "Dependence on specific people"
+      ],
+      "solutions": [
+        "Living SOP system (searchable, role-based)",
+        "AI-powered internal knowledge assistant",
+        "Continuous improvement feedback loop"
+      ]
+    }
+  ],
+  "categories": [
+    { "id": "sales", "label": "Sales", "color": "#3B82F6" },
+    { "id": "insurance", "label": "Insurance", "color": "#8B5CF6" },
+    { "id": "production", "label": "Production", "color": "#F59E0B" },
+    { "id": "customer", "label": "Customer", "color": "#10B981" },
+    { "id": "operations", "label": "Operations", "color": "#6366F1" },
+    { "id": "leadership", "label": "Leadership", "color": "#EC4899" }
+  ],
+  "implementationSteps": [
+    {
+      "step": 1,
+      "title": "Rank by Impact vs. Effort",
+      "criteria": ["Revenue protection", "Margin improvement", "Leadership time freed"]
+    },
+    {
+      "step": 2,
+      "title": "Assign an Owner to Each Pain Point",
+      "criteria": ["Not 'you'", "One accountable leader per item"]
+    },
+    {
+      "step": 3,
+      "title": "Turn Each Into a 90-Day Initiative",
+      "criteria": ["Define 'done'", "Define success metrics", "Define automation opportunities"]
+    }
+  ]
+}

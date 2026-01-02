@@ -1,0 +1,195 @@
+// Guardian Roofing Strategic Pain Points Database Schema
+// Tracks initiatives, progress, and AI interactions
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// INITIATIVE TRACKING
+// ============================================================================
+
+model Initiative {
+  id              String   @id @default(cuid())
+  painPointId     Int      // References the pain point number (1-10)
+  
+  // Status workflow: not_started → planning → in_progress → completed
+  status          String   @default("not_started")
+  progress        Int      @default(0) // 0-100 percentage
+  
+  // Ownership
+  owner           String?
+  ownerEmail      String?
+  
+  // Timeline
+  startDate       DateTime?
+  targetDate      DateTime?
+  completedDate   DateTime?
+  
+  // Priority override (allows reordering)
+  priorityOrder   Int      @default(0)
+  
+  // Notes and context
+  notes           String?
+  blockers        String?
+  
+  // Relationships
+  actionItems     ActionItem[]
+  comments        Comment[]
+  updates         StatusUpdate[]
+  dependencies    Dependency[] @relation("InitiativeDepends")
+  dependents      Dependency[] @relation("InitiativeDependedOn")
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@unique([painPointId])
+}
+
+model ActionItem {
+  id              String   @id @default(cuid())
+  initiativeId    String
+  initiative      Initiative @relation(fields: [initiativeId], references: [id], onDelete: Cascade)
+  
+  // Content
+  title           String
+  description     String?
+  order           Int      @default(0)
+  
+  // Status
+  completed       Boolean  @default(false)
+  completedAt     DateTime?
+  
+  // Assignment
+  assignee        String?
+  dueDate         DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Comment {
+  id              String   @id @default(cuid())
+  initiativeId    String
+  initiative      Initiative @relation(fields: [initiativeId], references: [id], onDelete: Cascade)
+  
+  author          String
+  content         String
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model StatusUpdate {
+  id              String   @id @default(cuid())
+  initiativeId    String
+  initiative      Initiative @relation(fields: [initiativeId], references: [id], onDelete: Cascade)
+  
+  fromStatus      String
+  toStatus        String
+  changedBy       String?
+  note            String?
+  
+  createdAt       DateTime @default(now())
+}
+
+// ============================================================================
+// AI ASSISTANT
+// ============================================================================
+
+model Conversation {
+  id              String   @id @default(cuid())
+  title           String?
+  
+  messages        Message[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Message {
+  id              String   @id @default(cuid())
+  conversationId  String
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  role            String   // "user" | "assistant"
+  content         String
+  
+  // Optional: track which pain points were referenced
+  referencedPainPoints String? // JSON array of IDs
+  
+  createdAt       DateTime @default(now())
+}
+
+// ============================================================================
+// DEPENDENCY TRACKING
+// ============================================================================
+
+model Dependency {
+  id                String   @id @default(cuid())
+  
+  // Initiative that depends on another
+  initiativeId      String
+  initiative        Initiative @relation("InitiativeDepends", fields: [initiativeId], references: [id], onDelete: Cascade)
+  
+  // Initiative that is depended upon
+  dependsOnId       String
+  dependsOn         Initiative @relation("InitiativeDependedOn", fields: [dependsOnId], references: [id], onDelete: Cascade)
+  
+  // Dependency metadata
+  type              String   @default("blocks") // blocks, enables, relates_to
+  note              String?
+  
+  createdAt         DateTime @default(now())
+  
+  @@unique([initiativeId, dependsOnId])
+}
+
+// ============================================================================
+// EMAIL SUBSCRIPTIONS
+// ============================================================================
+
+model EmailSubscription {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  name            String?
+  
+  // Subscription preferences
+  weeklyDigest    Boolean  @default(true)
+  deadlineAlerts  Boolean  @default(true)
+  statusUpdates   Boolean  @default(false)
+  
+  // Filter preferences (JSON strings)
+  ownerFilter     String?  // null = all, or specific owner name
+  categoryFilter  String?  // null = all, or specific category
+  priorityFilter  String?  // null = all, or P0/P1/P2
+  
+  // Verification
+  verified        Boolean  @default(false)
+  verificationToken String? @unique
+  
+  // Management
+  active          Boolean  @default(true)
+  unsubscribeToken String? @unique
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ============================================================================
+// USER MANAGEMENT (for future collaboration)
+// ============================================================================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      String   @default("viewer") // viewer, editor, admin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

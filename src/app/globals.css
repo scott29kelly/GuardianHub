@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Guardian Roofing Brand Colors */
+:root {
+  /* Brand Colors */
+  --guardian-orange: #F7941D;
+  --guardian-orange-dark: #E07D0C;
+  --guardian-blue: #015a84;
+  --guardian-blue-dark: #014668;
+  --guardian-navy: #1E3A4F;
+  --guardian-navy-dark: #0F2A3D;
+  
+  --radius: 0.5rem;
+  
+  /* Light Mode - Guardian Brand */
+  --background: oklch(0.98 0.002 240);
+  --foreground: oklch(0.2 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 240);
+  
+  /* Primary = Guardian Orange */
+  --primary: oklch(0.72 0.18 55);
+  --primary-foreground: oklch(1 0 0);
+  
+  /* Secondary = Guardian Teal */
+  --secondary: oklch(0.52 0.1 195);
+  --secondary-foreground: oklch(1 0 0);
+  
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.45 0.02 240);
+  --accent: oklch(0.52 0.1 195);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 240);
+  --input: oklch(0.92 0.005 240);
+  --ring: oklch(0.72 0.18 55);
+  
+  /* Charts - Guardian palette */
+  --chart-1: oklch(0.72 0.18 55);
+  --chart-2: oklch(0.52 0.1 195);
+  --chart-3: oklch(0.35 0.06 240);
+  --chart-4: oklch(0.65 0.15 145);
+  --chart-5: oklch(0.6 0.2 30);
+  
+  /* Sidebar - Guardian Navy */
+  --sidebar: oklch(0.25 0.04 240);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.72 0.18 55);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.35 0.05 240);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.35 0.04 240);
+  --sidebar-ring: oklch(0.72 0.18 55);
+}
+
+.dark {
+  --background: oklch(0.15 0.02 240);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.2 0.025 240);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.2 0.025 240);
+  --popover-foreground: oklch(0.95 0 0);
+  
+  /* Primary = Guardian Orange */
+  --primary: oklch(0.75 0.19 55);
+  --primary-foreground: oklch(0.15 0.02 240);
+  
+  /* Secondary = Guardian Teal */
+  --secondary: oklch(0.55 0.1 195);
+  --secondary-foreground: oklch(1 0 0);
+  
+  --muted: oklch(0.25 0.025 240);
+  --muted-foreground: oklch(0.65 0.02 240);
+  --accent: oklch(0.55 0.1 195);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.3 0.03 240);
+  --input: oklch(0.28 0.025 240);
+  --ring: oklch(0.75 0.19 55);
+  
+  /* Charts - Guardian palette dark */
+  --chart-1: oklch(0.75 0.19 55);
+  --chart-2: oklch(0.55 0.1 195);
+  --chart-3: oklch(0.5 0.08 240);
+  --chart-4: oklch(0.7 0.15 145);
+  --chart-5: oklch(0.65 0.2 30);
+  
+  /* Sidebar - Guardian Navy Dark */
+  --sidebar: oklch(0.18 0.025 240);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.75 0.19 55);
+  --sidebar-primary-foreground: oklch(0.15 0.02 240);
+  --sidebar-accent: oklch(0.28 0.03 240);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.3 0.03 240);
+  --sidebar-ring: oklch(0.75 0.19 55);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom Guardian colors for direct use */
+  --color-guardian-orange: #F7941D;
+  --color-guardian-orange-dark: #E07D0C;
+  --color-guardian-blue: #015a84;
+  --color-guardian-blue-dark: #014668;
+  --color-guardian-navy: #1E3A4F;
+  --color-guardian-navy-dark: #0F2A3D;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Guardian-specific utility classes */
+@layer utilities {
+  .bg-guardian-gradient {
+    background: linear-gradient(135deg, #015a84 0%, #1E3A4F 100%);
+  }
+  
+  .bg-guardian-orange-gradient {
+    background: linear-gradient(135deg, #F7941D 0%, #E07D0C 100%);
+  }
+  
+  .text-guardian-orange {
+    color: #F7941D;
+  }
+  
+  .text-guardian-blue {
+    color: #015a84;
+  }
+  
+  .border-guardian-orange {
+    border-color: #F7941D;
+  }
+  
+  .guardian-underline {
+    position: relative;
+  }
+  
+  .guardian-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #F7941D;
+    border-radius: 2px;
+  }
+}
